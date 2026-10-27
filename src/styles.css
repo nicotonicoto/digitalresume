@@ -164,6 +164,14 @@ summary:focus-visible,
   transition: color 180ms ease;
 }
 .primary-nav a:hover { color: var(--ink); }
+.primary-nav .nav-link--external {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.nav-link--external span { color: var(--accent-blue); font-size: 0.86em; }
+.primary-nav .nav-link--external:hover span { color: var(--accent); }
 .primary-nav .nav-contact {
   display: inline-flex;
   min-height: 44px;

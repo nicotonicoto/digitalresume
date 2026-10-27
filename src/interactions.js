@@ -37,10 +37,11 @@ function initMapControls() {
   const viewport = document.querySelector(".signal-map__viewport");
   const messages = { all: "Tracing the full path", systems: "Highlighting enterprise source systems", platform: "Highlighting data platforms and governance", outcomes: "Highlighting reporting and business outcomes" };
   controls.forEach((control) => control.addEventListener("click", () => {
-    const layer = control.dataset.mapFocus;
+    const selectedLayer = control.dataset.mapFocus;
+    const layer = selectedLayer !== "all" && control.classList.contains("is-active") ? "all" : selectedLayer;
     viewport?.setAttribute("data-focus", layer);
     controls.forEach((item) => {
-      const active = item === control;
+      const active = item.dataset.mapFocus === layer;
       item.classList.toggle("is-active", active);
       item.setAttribute("aria-pressed", String(active));
     });

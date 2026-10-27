@@ -1,4 +1,4 @@
-import { experience, projects, skillGroups } from "./data.js?v=20261027-3";
+import { experience, projects, skillGroups } from "./data.js?v=20261027-4";
 
 const escapeHTML = (value) =>
   value.replace(/[&<>"']/g, (character) => ({
