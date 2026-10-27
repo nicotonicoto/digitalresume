@@ -85,7 +85,6 @@ function initReadingProgress() {
 function initCustomCursor() {
   if (!finePointer.matches || reduceMotion.matches) return;
   const cursor = document.querySelector(".custom-cursor");
-  const label = document.querySelector(".cursor-label");
   let frame = 0;
   let x = 0;
   let y = 0;
@@ -96,18 +95,14 @@ function initCustomCursor() {
       frame = 0;
       cursor?.style.setProperty("--cursor-x", `${x}px`);
       cursor?.style.setProperty("--cursor-y", `${y}px`);
-      label?.style.setProperty("--cursor-x", `${x}px`);
-      label?.style.setProperty("--cursor-y", `${y}px`);
     });
   }, { passive: true });
   window.addEventListener("pointerover", (event) => {
     const target = event.target.closest?.("a, button, summary, [data-cursor]");
     cursor?.classList.toggle("is-active", Boolean(target));
-    label?.classList.toggle("is-visible", target?.dataset.cursor === "expand");
   });
   document.documentElement.addEventListener("pointerleave", () => {
     cursor?.classList.remove("is-active");
-    label?.classList.remove("is-visible");
   });
   document.documentElement.classList.add("has-custom-cursor");
 }

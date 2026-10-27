@@ -12,7 +12,7 @@ function renderProjects() {
   root.innerHTML = projects.map((project, index) => `
     <article class="work-card ${project.className}" data-tilt data-reveal style="--reveal-delay: ${index * 70}ms">
       <div class="work-card__glow" aria-hidden="true"></div>
-      <button class="work-card__toggle" type="button" aria-expanded="false" aria-controls="project-detail-${project.id}" data-cursor="expand">
+      <button class="work-card__toggle" type="button" aria-expanded="false" aria-controls="project-detail-${project.id}" data-cursor>
         <span class="work-card__meta"><span>${escapeHTML(project.category)}</span><span class="work-card__indicator" aria-hidden="true"></span></span>
         <span class="work-card__title">${escapeHTML(project.title)}</span>
         <span class="work-card__summary">${escapeHTML(project.summary)}</span>
